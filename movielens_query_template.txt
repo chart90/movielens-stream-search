@@ -1,0 +1,32 @@
+"""
+Sample MovieLens query template
+
+{
+    'hasRated': {'yes', 'no'},
+    'sortBy': {'recommended', 'popularity', 'releaseDate', 'dateAdded'},
+    'genre': {'action', 'adventure', 'animation', 'comedy', 'crime',
+        'documentary', 'drama', 'family', 'fantasy', 'foreign', 'history',
+        'horror', 'music', 'mystery', 'romance', 'science fiction',
+        'tv movie', 'thriller', 'war', 'western'},
+    'tag': <freetext query>,
+    'q': <freetext query>,
+    'actors': <freetext query>,
+    'directors': <freetext query>,,
+    'mpaa': ['g', 'pg', 'pg-13', 'r', 'nc-17'],
+    'minPop': <integer>,
+    'maxPop': <integer>,
+    'minYear': <integer>,
+    'maxYear': <integer>,
+    'hasHidden': {'yes', 'no', 'ignore'},
+    'hasWishlisted': {'yes', 'no', 'ignore'}
+}
+
+Query dict for pulling most-recommended, unseen, action movies:
+
+{
+    'hasRated': 'no',
+    'sortBy': 'recommended',
+    'genre': 'action'
+}
+
+"""
