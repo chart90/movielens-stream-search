@@ -1,9 +1,10 @@
 from justwatch import JustWatch
 from ml_api import MovieLens
 import json
+import config
 
 ml = MovieLens()
-jw = JustWatch(country='GB')
+jw = JustWatch(country=config.COUNTRY)
 
 DEFAULT_FILTERS = {
     'monetization_type': ('rent', 'buy', 'cinema'),
@@ -33,7 +34,7 @@ def get_available_streams(jw_movie, filters):
     for offer in jw_movie.get('offers', []):
         if all([offer[f_key] not in f_vals
                 for f_key, f_vals in filters.items()]):
-            service = PROVIDERS.get(offer['provider_id'], 'UNKNOWN')
+            service = PROVIDERS.get(offer['provider_id'], offer['provider_id'])
             url = offer['urls']['standard_web']
             if any([service == of['service'] for of in offers]):
                 continue
